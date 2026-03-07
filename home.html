@@ -55,12 +55,9 @@
         <section id="available-issues" class="mt-8" data-active-tab="all">
             <!-- issues tabs -->
             <div class="issues-tabs flex gap-4 mb-4 bg-base-100 p-8 shadow-sm rounded-lg">
-                <button onclick="allIssue()" class="active-tab-button btn bg-[#4A00FF] text-white rounded hover:bg-[#4A00FF] hover:text-white"
-                    id="all-tab">All</button>
-                <button onclick="allIssue()" class="active-tab-button btn bg-white text-[#64748B] rounded hover:bg-[#4A00FF] hover:text-white"
-                    id="open-tab">Open</button>
-                <button class="active-tab-button btn bg-white text-[#64748B] rounded hover:bg-[#4A00FF] hover:text-white"
-                    id="closed-tab">Closed</button>
+                <button onclick="allIssue('all-tab')" class="active-tab-button btn bg-[#4A00FF] text-white rounded hover:bg-[#4A00FF] hover:text-white" id="all-tab">All</button>
+                <button onclick="allIssue('open-tab')" class="active-tab-button btn bg-white text-[#64748B] rounded hover:bg-[#4A00FF] hover:text-white" id="open-tab">Open</button>
+                <button onclick="allIssue('closed-tab')" class="active-tab-button btn bg-white text-[#64748B] rounded hover:bg-[#4A00FF] hover:text-white" id="closed-tab">Closed</button>
             </div>
     
             <!-- issues summary -->
@@ -244,6 +241,10 @@
 <!-- script -->
 <script src="./scripts/loader.js"></script>
 <script src="./scripts/active-tab.js"></script>
-<script src="./scripts/all-issue.js"></script>
+<script src="./scripts/display-all-issue.js"></script>
+<script src="./scripts/display-closed-issue.js"></script>
+<script src="./scripts/display-open-issue.js"></script>
+<script src="./scripts/fetch-all-issue.js"></script>
+<script src="./scripts/fetch-single-issue.js"></script>
 </body>
 </html>

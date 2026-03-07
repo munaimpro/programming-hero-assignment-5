@@ -1,33 +1,20 @@
-// Function to fetch all issues
-
-const allIssueLink = 'https://phi-lab-server.vercel.app/api/v1/lab/issues';
-
-const allIssue = () => {
-    fetch(allIssueLink)
-        .then(response => response.json())
-        .then(data => {
-            showLoader();
-            displayAllIssue(data.data);
-            hideLoader()
-        })
-}
-
-allIssue();
-
-
-// Function to display all issues
-const displayAllIssue = (issues) => {
+// Function to display open issues
+const displayOpenIssue = (issues) => {
+    // Find the closed issues
+    const openIssue = issues.filter(issue => issue.status == 'open');
+    console.log(openIssue);
+    
     // Display active button
-    displayActiveButton('all-tab');
+    displayActiveButton('closed-tab');
 
     // Display total issue number
-    document.getElementById('totalIssue').innerText = issues.length + ' Issues';
-    
+    document.getElementById('totalIssue').innerText = openIssue.length + ' Issues';
+
     // Find the issue container
     const issueContainer = document.getElementById('issue-container');
     issueContainer.innerHTML = '';
-    
-    issues.forEach(issue => {
+
+    openIssue.forEach(issue => {
         // issue status
         let issueStatus = ''
         let issueBorder = ''
@@ -47,7 +34,7 @@ const displayAllIssue = (issues) => {
             issuePriority = `<span class="badge badge-error bg-[#EEEFF2] rounded-full border-none  text-[#9CA3AF] py-[6px]">LOW</span>`;
         } if (issue.priority == "high") {
             issuePriority = `<span class="badge badge-error bg-[#FEECEC] rounded-full border-none  text-[#EF4444] py-[6px] ">HIGH</span>`;
-        }else {
+        } else {
             issuePriority = `<span class="badge badge-error bg-[#FFF6D1] rounded-full border-none  text-[#F59E0B] py-[6px]">MEDIUM</span>`;
         }
 
@@ -120,45 +107,3 @@ const displayAllIssue = (issues) => {
     })
 }
 
-// const displayAllIssue = (issues) => {
-
-//     const issueContainer = document.getElementById('issue-container');
-//     issueContainer.innerHTML = '';
-
-//     issues.forEach(issue => {
-
-//         const issueItem = `
-//         <!--issue item-->
-//         <div class="card rounded bg-base-100 shadow-sm border-t-4 border-green-500 cursor-pointer"
-//             onclick="issue_modal.showModal()">
-
-//             <div class="card-body p-0">
-
-//                 <div class="flex items-center justify-between pt-5 px-5">
-//                     <span class="badge badge-error bg-[#FEECEC] rounded-full border-none text-[#EF4444] py-[6px]">
-//                         HIGH
-//                     </span>
-//                 </div>
-
-//                 <h2 class="font-semibold text-base px-5">
-//                     ${issue.title}
-//                 </h2>
-
-//                 <p class="px-5 text-sm text-[#64748B]">
-//                     ${issue.description || 'No description'}
-//                 </p>
-
-//                 <div class="text-xs px-5 pb-5">
-//                     <p class="text-[#64748B] mb-2 text-[12px]">
-//                         #${issue.id}
-//                     </p>
-//                 </div>
-
-//             </div>
-//         </div>
-//         `;
-
-//         issueContainer.innerHTML += issueItem;
-
-//     });
-// }
