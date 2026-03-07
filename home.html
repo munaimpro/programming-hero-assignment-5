@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tailwind CSS and Daisy UI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <title>GitHub Issue Tracker | Login</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-[#F8FAFC] min-h-[100vh]">
+    <!-- navbar section -->
+    <nav class="navbar bg-base-100 shadow-sm px-10 lg:px-20 flex flex-col lg:flex-row lg:justify-between">
+        <div class="navbar-start overflow-hidden w-full justify-center lg:justify-start mb-6 lg:mb-0">
+            <img class="w-[36px]" src="./assets/github-logo.png" alt="github-logo">
+            <a class="ms-2 font-semibold text-[24px]">GitHub Issues Tracker</a>
+        </div>
+        <div class="navbar-end flex gap-3 w-full justify-center lg:justify-end">
+            <label class="input">
+                <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                    </g>
+                </svg>
+                <input type="search" required placeholder="Search issues..." />
+            </label>
+            <a class="btn btn-primary shadow-none"><i class="fas fa-plus"></i>New Issue</a>
+        </div>
+    </nav>
+
+    <!-- main section -->
+    <main class="max-w-[1110px] py-[60px] px-4 lg:px-0 mx-auto">
+        <!-- issues section -->
+        <section id="available-issues" class="mt-8" data-active-tab="all">
+            <!-- issues tabs -->
+            <div class="issues-tabs flex gap-4 mb-4 bg-base-100 p-8 shadow-sm rounded-lg">
+                <button class="btn bg-white text-[#64748B] rounded hover:bg-[#4A00FF] hover:text-white"
+                    id="all-tab">All</button>
+                <button class="btn bg-white text-[#64748B] rounded hover:bg-[#4A00FF] hover:text-white"
+                    id="open-tab">Open</button>
+                <button class="btn bg-white text-[#64748B] rounded hover:bg-[#4A00FF] hover:text-white"
+                    id="closed-tab">Closed</button>
+            </div>
+    
+            <!-- issues summary -->
+            <div class="issues-summary card rounded-b-none bg-base-100 shadow-sm p-4">
+                <div class="flex items-center justify-between">
+                    <!-- summary-content -->
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                            <img src="./assets/Aperture.png" alt="">
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-[#1F2937]">50 Issues</h3>
+                            <p class="text-[#64748B] text-sm">Track and manage your project issues</p>
+                        </div>
+                    </div>
+    
+                    <!-- summary dots -->
+                    <div class="flex items-center gap-4 text-sm">
+                        <div class="flex items-center gap-1">
+                            <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                            <span class="text-[#1F2937]">Open</span>
+                        </div>
+    
+                        <div class="flex items-center gap-1">
+                            <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span>
+                            <span class="text-[#1F2937]">Closed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- issues list -->
+            <div class="issues-list grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 bg-[#FBFBFB] shadow-sm p-6">
+                <!-- issue item -->
+                <div class="card rounded bg-base-100 shadow-sm border-t-4 border-green-500 cursor-pointer"
+                    onclick="issue_modal.showModal()">
+                    <div class="card-body p-0">
+                        <!-- header -->
+                        <div class="flex items-center justify-between pt-5 px-5">
+                            <div class="flex items-center gap-2">
+                                <img src="./assets/Open-Status.png" alt="closed-status">
+                                <img src="./assets/Closed- Status .png" alt="closed-status">
+                            </div>
+                            <span
+                                class="badge badge-error bg-[#FEECEC] rounded-full border-none  text-[#EF4444] py-[6px] ">HIGH</span>
+                            <span
+                                class="badge badge-error bg-[#FFF6D1] rounded-full border-none  text-[#F59E0B] py-[6px]">MEDIUM</span>
+                            <span
+                                class="badge badge-error bg-[#EEEFF2] rounded-full border-none  text-[#9CA3AF] py-[6px]">LOW</span>
+                        </div>
+    
+                        <!-- issue title -->
+                        <h2 class="font-semibold text-base px-5">
+                            Fix Navigation Menu On Mobile Devices
+                        </h2>
+    
+                        <!-- issue description -->
+                        <p class="px-5 text-sm text-[#64748B]">The navigation menu doesn't collapse properly on mobile
+                            devices...</p>
+    
+                        <!-- issue tags -->
+                        <div class="flex gap-2 mt-2 px-5">
+                            <span
+                                class="badge badge-error bg-[#FEECEC] rounded-full text-[#EF4444] py-[6px] border-[#FECACA]"><img
+                                    src="./assets/Bug-Icon.png" alt="bug"> BUG</span>
+                            <span
+                                class="min-w-fit badge badge-warning bg-[#FFF8DB] rounded-full text-[#D97706] py-[6px] border-[#FDE68A]"><img
+                                    src="./assets/Help-Icon.png" alt="help">HELP WANTED</span>
+                        </div>
+    
+                        <!-- footer -->
+                        <div class="text-xs px-5 pb-5">
+                            <p class="text-[#64748B] mb-2 text-[12px]">#1 by john_doe</p>
+                            <p class="text-[#64748B] text-[12px]">1/15/2024</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- issue item -->
+                <div class="card rounded bg-base-100 shadow-sm border-t-4 border-green-500 cursor-pointer"
+                    onclick="issue_modal.showModal()">
+                    <div class="card-body p-0">
+                        <!-- header -->
+                        <div class="flex items-center justify-between pt-5 px-5">
+                            <div class="flex items-center gap-2">
+                                <img src="./assets/Open-Status.png" alt="closed-status">
+                                <img src="./assets/Closed- Status .png" alt="closed-status">
+                            </div>
+                            <span
+                                class="badge badge-error bg-[#FEECEC] rounded-full border-none  text-[#EF4444] py-[6px] ">HIGH</span>
+                            <span
+                                class="badge badge-error bg-[#FFF6D1] rounded-full border-none  text-[#F59E0B] py-[6px]">MEDIUM</span>
+                            <span
+                                class="badge badge-error bg-[#EEEFF2] rounded-full border-none  text-[#9CA3AF] py-[6px]">LOW</span>
+                        </div>
+    
+                        <!-- issue title -->
+                        <h2 class="font-semibold text-base px-5">
+                            Fix Navigation Menu On Mobile Devices
+                        </h2>
+    
+                        <!-- issue description -->
+                        <p class="px-5 text-sm text-[#64748B]">The navigation menu doesn't collapse properly on mobile
+                            devices...</p>
+    
+                        <!-- issue tags -->
+                        <div class="flex gap-2 mt-2 px-5">
+                            <span
+                                class="badge badge-error bg-[#FEECEC] rounded-full text-[#EF4444] py-[6px] border-[#FECACA]"><img
+                                    src="./assets/Bug-Icon.png" alt="bug"> BUG</span>
+                            <span
+                                class="min-w-fit badge badge-warning bg-[#FFF8DB] rounded-full text-[#D97706] py-[6px] border-[#FDE68A]"><img
+                                    src="./assets/Help-Icon.png" alt="help">HELP WANTED</span>
+                        </div>
+    
+                        <!-- footer -->
+                        <div class="text-xs px-5 pb-5">
+                            <p class="text-[#64748B] mb-2 text-[12px]">#1 by john_doe</p>
+                            <p class="text-[#64748B] text-[12px]">1/15/2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- issue modal -->
+            <!-- Open the modal using ID.showModal() method -->
+            <dialog id="issue_modal" class="modal modal-bottom sm:modal-middle">
+                <div class="modal-box">
+                    <!-- issue title -->
+                    <h3 class="text-2xl font-bold mb-2">Fix broken image uploads</h3>
+    
+                    <!-- issue meta -->
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="badge badge-success rounded-full text-white bg-[#00A96E]">Opened</span>
+                        <span class="text-xl text-[#64748B]">&bull;</span>
+                        <span class="text-[#64748B] text-xs">Opened by Fahim Ahmed</span>
+                        <span class="text-xl text-[#64748B]">&bull;</span>
+                        <span class="text-[#64748B] text-xs">22/02/2026</span>
+                    </div>
+    
+                    <!-- issue tags -->
+                    <div class="flex gap-2 mb-6">
+                        <span
+                            class="badge badge-error bg-[#FEECEC] rounded-full text-[#EF4444] py-[6px] border-[#FECACA]"><img
+                                src="./assets/Bug-Icon.png" alt="bug"> BUG</span>
+                        <span
+                            class="badge badge-warning bg-[#FFF8DB] rounded-full text-[#D97706] py-[6px] border-[#FDE68A]"><img
+                                src="./assets/Help-Icon.png" alt="help"> HELP WANTED</span>
+                    </div>
+    
+                    <!-- issue description -->
+                    <p class="text-[#64748B] text-[16px] mb-6">The navigation menu doesn't collapse properly on mobile
+                        devices. Need to fix the responsive behavior.</p>
+    
+                    <!-- issue assignee + priority -->
+                    <div class="bg-[#F8FAFC] rounded-lg flex align-middle p-4">
+                        <div class="assignee w-1/2">
+                            <p class="text-[#64748B] text-[16px]">Assignee:</p>
+                            <h6 class="font-semibold text-[16px] text-[#1F2937]">Fahim Ahmed</h6>
+                        </div>
+                        <div class="priority w-1/2">
+                            <p class="text-[#64748B] text-[16px]">Priority:</p>
+                            <span class="badge badge-error rounded-full text-white bg-[#EF4444]">High</span>
+                        </div>
+                    </div>
+    
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn btn-primary">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+        </section>
+    </main>
+</body>
+</html>
