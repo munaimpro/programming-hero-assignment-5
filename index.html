@@ -93,7 +93,7 @@
             <!-- issues list -->
             <div class="issues-list grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 bg-[#FBFBFB] shadow-sm p-6">
                 <!-- issue item -->
-                <div class="card rounded bg-base-100 shadow-sm border-t-4 border-green-500">
+                <div class="card rounded bg-base-100 shadow-sm border-t-4 border-green-500 cursor-pointer" onclick="issue_modal.showModal()">
                     <div class="card-body p-0">
                         <!-- header -->
                         <div class="flex items-center justify-between pt-5 px-5">
@@ -116,8 +116,8 @@
             
                         <!-- issue tags -->
                         <div class="flex gap-2 mt-2 px-5">
-                            <span class="badge badge-error bg-[#FEECEC] rounded-full text-[#EF4444] py-[6px] border-[#FECACA]">BUG</span>
-                            <span class="badge badge-warning bg-[#FFF8DB] rounded-full text-[#D97706] py-[6px] border-[#FDE68A]">HELP WANTED</span>
+                            <span class="badge badge-error bg-[#FEECEC] rounded-full text-[#EF4444] py-[6px] border-[#FECACA]"><img src="./assets/Bug-Icon.png" alt="bug"> BUG</span>
+                            <span class="min-w-fit badge badge-warning bg-[#FFF8DB] rounded-full text-[#D97706] py-[6px] border-[#FDE68A]"><img src="./assets/Help-Icon.png" alt="help">HELP WANTED</span>
                         </div>
             
                         <!-- footer -->
@@ -127,9 +127,10 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- issue item -->
-                <div class="card rounded bg-base-100 shadow-sm border-t-4 border-green-500">
+                <div class="card rounded bg-base-100 shadow-sm border-t-4 border-green-500 cursor-pointer"
+                    onclick="issue_modal.showModal()">
                     <div class="card-body p-0">
                         <!-- header -->
                         <div class="flex items-center justify-between pt-5 px-5">
@@ -152,272 +153,11 @@
                 
                         <!-- issue tags -->
                         <div class="flex gap-2 mt-2 px-5">
+                            <span class="badge badge-error bg-[#FEECEC] rounded-full text-[#EF4444] py-[6px] border-[#FECACA]"><img
+                                    src="./assets/Bug-Icon.png" alt="bug"> BUG</span>
                             <span
-                                class="badge badge-error bg-[#FEECEC] rounded-full text-[#EF4444] py-[6px] border-[#FECACA]">BUG</span>
-                            <span class="badge badge-warning bg-[#FFF8DB] rounded-full text-[#D97706] py-[6px] border-[#FDE68A]">HELP
-                                WANTED</span>
-                        </div>
-                
-                        <!-- footer -->
-                        <div class="text-xs px-5 pb-5">
-                            <p class="text-[#64748B] mb-2 text-[12px]">#1 by john_doe</p>
-                            <p class="text-[#64748B] text-[12px]">1/15/2024</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- issue item -->
-                <div class="card rounded bg-base-100 shadow-sm border-t-4 border-green-500">
-                    <div class="card-body p-0">
-                        <!-- header -->
-                        <div class="flex items-center justify-between pt-5 px-5">
-                            <div class="flex items-center gap-2">
-                                <img src="./assets/Open-Status.png" alt="closed-status">
-                                <img src="./assets/Closed- Status .png" alt="closed-status">
-                            </div>
-                            <span class="badge badge-error bg-[#FEECEC] rounded-full border-none  text-[#EF4444] py-[6px] ">HIGH</span>
-                            <span class="badge badge-error bg-[#FFF6D1] rounded-full border-none  text-[#F59E0B] py-[6px]">MEDIUM</span>
-                            <span class="badge badge-error bg-[#EEEFF2] rounded-full border-none  text-[#9CA3AF] py-[6px]">LOW</span>
-                        </div>
-                
-                        <!-- issue title -->
-                        <h2 class="font-semibold text-base px-5">
-                            Fix Navigation Menu On Mobile Devices
-                        </h2>
-                
-                        <!-- issue description -->
-                        <p class="px-5 text-sm text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...</p>
-                
-                        <!-- issue tags -->
-                        <div class="flex gap-2 mt-2 px-5">
-                            <span
-                                class="badge badge-error bg-[#FEECEC] rounded-full text-[#EF4444] py-[6px] border-[#FECACA]">BUG</span>
-                            <span class="badge badge-warning bg-[#FFF8DB] rounded-full text-[#D97706] py-[6px] border-[#FDE68A]">HELP
-                                WANTED</span>
-                        </div>
-                
-                        <!-- footer -->
-                        <div class="text-xs px-5 pb-5">
-                            <p class="text-[#64748B] mb-2 text-[12px]">#1 by john_doe</p>
-                            <p class="text-[#64748B] text-[12px]">1/15/2024</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- issue item -->
-                <div class="card rounded bg-base-100 shadow-sm border-t-4 border-green-500">
-                    <div class="card-body p-0">
-                        <!-- header -->
-                        <div class="flex items-center justify-between pt-5 px-5">
-                            <div class="flex items-center gap-2">
-                                <img src="./assets/Open-Status.png" alt="closed-status">
-                                <img src="./assets/Closed- Status .png" alt="closed-status">
-                            </div>
-                            <span class="badge badge-error bg-[#FEECEC] rounded-full border-none  text-[#EF4444] py-[6px] ">HIGH</span>
-                            <span class="badge badge-error bg-[#FFF6D1] rounded-full border-none  text-[#F59E0B] py-[6px]">MEDIUM</span>
-                            <span class="badge badge-error bg-[#EEEFF2] rounded-full border-none  text-[#9CA3AF] py-[6px]">LOW</span>
-                        </div>
-                
-                        <!-- issue title -->
-                        <h2 class="font-semibold text-base px-5">
-                            Fix Navigation Menu On Mobile Devices
-                        </h2>
-                
-                        <!-- issue description -->
-                        <p class="px-5 text-sm text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...</p>
-                
-                        <!-- issue tags -->
-                        <div class="flex gap-2 mt-2 px-5">
-                            <span
-                                class="badge badge-error bg-[#FEECEC] rounded-full text-[#EF4444] py-[6px] border-[#FECACA]">BUG</span>
-                            <span class="badge badge-warning bg-[#FFF8DB] rounded-full text-[#D97706] py-[6px] border-[#FDE68A]">HELP
-                                WANTED</span>
-                        </div>
-                
-                        <!-- footer -->
-                        <div class="text-xs px-5 pb-5">
-                            <p class="text-[#64748B] mb-2 text-[12px]">#1 by john_doe</p>
-                            <p class="text-[#64748B] text-[12px]">1/15/2024</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- issue item -->
-                <div class="card rounded bg-base-100 shadow-sm border-t-4 border-green-500">
-                    <div class="card-body p-0">
-                        <!-- header -->
-                        <div class="flex items-center justify-between pt-5 px-5">
-                            <div class="flex items-center gap-2">
-                                <img src="./assets/Open-Status.png" alt="closed-status">
-                                <img src="./assets/Closed- Status .png" alt="closed-status">
-                            </div>
-                            <span class="badge badge-error bg-[#FEECEC] rounded-full border-none  text-[#EF4444] py-[6px] ">HIGH</span>
-                            <span class="badge badge-error bg-[#FFF6D1] rounded-full border-none  text-[#F59E0B] py-[6px]">MEDIUM</span>
-                            <span class="badge badge-error bg-[#EEEFF2] rounded-full border-none  text-[#9CA3AF] py-[6px]">LOW</span>
-                        </div>
-            
-                        <!-- issue title -->
-                        <h2 class="font-semibold text-base px-5">
-                            Fix Navigation Menu On Mobile Devices
-                        </h2>
-            
-                        <!-- issue description -->
-                        <p class="px-5 text-sm text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...</p>
-            
-                        <!-- issue tags -->
-                        <div class="flex gap-2 mt-2 px-5">
-                            <span class="badge badge-error bg-[#FEECEC] rounded-full text-[#EF4444] py-[6px] border-[#FECACA]">BUG</span>
-                            <span class="badge badge-warning bg-[#FFF8DB] rounded-full text-[#D97706] py-[6px] border-[#FDE68A]">HELP WANTED</span>
-                        </div>
-            
-                        <!-- footer -->
-                        <div class="text-xs px-5 pb-5">
-                            <p class="text-[#64748B] mb-2 text-[12px]">#1 by john_doe</p>
-                            <p class="text-[#64748B] text-[12px]">1/15/2024</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- issue item -->
-                <div class="card rounded bg-base-100 shadow-sm border-t-4 border-green-500">
-                    <div class="card-body p-0">
-                        <!-- header -->
-                        <div class="flex items-center justify-between pt-5 px-5">
-                            <div class="flex items-center gap-2">
-                                <img src="./assets/Open-Status.png" alt="closed-status">
-                                <img src="./assets/Closed- Status .png" alt="closed-status">
-                            </div>
-                            <span class="badge badge-error bg-[#FEECEC] rounded-full border-none  text-[#EF4444] py-[6px] ">HIGH</span>
-                            <span class="badge badge-error bg-[#FFF6D1] rounded-full border-none  text-[#F59E0B] py-[6px]">MEDIUM</span>
-                            <span class="badge badge-error bg-[#EEEFF2] rounded-full border-none  text-[#9CA3AF] py-[6px]">LOW</span>
-                        </div>
-            
-                        <!-- issue title -->
-                        <h2 class="font-semibold text-base px-5">
-                            Fix Navigation Menu On Mobile Devices
-                        </h2>
-            
-                        <!-- issue description -->
-                        <p class="px-5 text-sm text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...</p>
-            
-                        <!-- issue tags -->
-                        <div class="flex gap-2 mt-2 px-5">
-                            <span class="badge badge-error bg-[#FEECEC] rounded-full text-[#EF4444] py-[6px] border-[#FECACA]">BUG</span>
-                            <span class="badge badge-warning bg-[#FFF8DB] rounded-full text-[#D97706] py-[6px] border-[#FDE68A]">HELP WANTED</span>
-                        </div>
-            
-                        <!-- footer -->
-                        <div class="text-xs px-5 pb-5">
-                            <p class="text-[#64748B] mb-2 text-[12px]">#1 by john_doe</p>
-                            <p class="text-[#64748B] text-[12px]">1/15/2024</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- issue item -->
-                <div class="card rounded bg-base-100 shadow-sm border-t-4 border-green-500">
-                    <div class="card-body p-0">
-                        <!-- header -->
-                        <div class="flex items-center justify-between pt-5 px-5">
-                            <div class="flex items-center gap-2">
-                                <img src="./assets/Open-Status.png" alt="closed-status">
-                                <img src="./assets/Closed- Status .png" alt="closed-status">
-                            </div>
-                            <span class="badge badge-error bg-[#FEECEC] rounded-full border-none  text-[#EF4444] py-[6px] ">HIGH</span>
-                            <span class="badge badge-error bg-[#FFF6D1] rounded-full border-none  text-[#F59E0B] py-[6px]">MEDIUM</span>
-                            <span class="badge badge-error bg-[#EEEFF2] rounded-full border-none  text-[#9CA3AF] py-[6px]">LOW</span>
-                        </div>
-                
-                        <!-- issue title -->
-                        <h2 class="font-semibold text-base px-5">
-                            Fix Navigation Menu On Mobile Devices
-                        </h2>
-                
-                        <!-- issue description -->
-                        <p class="px-5 text-sm text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...</p>
-                
-                        <!-- issue tags -->
-                        <div class="flex gap-2 mt-2 px-5">
-                            <span
-                                class="badge badge-error bg-[#FEECEC] rounded-full text-[#EF4444] py-[6px] border-[#FECACA]">BUG</span>
-                            <span class="badge badge-warning bg-[#FFF8DB] rounded-full text-[#D97706] py-[6px] border-[#FDE68A]">HELP
-                                WANTED</span>
-                        </div>
-                
-                        <!-- footer -->
-                        <div class="text-xs px-5 pb-5">
-                            <p class="text-[#64748B] mb-2 text-[12px]">#1 by john_doe</p>
-                            <p class="text-[#64748B] text-[12px]">1/15/2024</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- issue item -->
-                <div class="card rounded bg-base-100 shadow-sm border-t-4 border-green-500">
-                    <div class="card-body p-0">
-                        <!-- header -->
-                        <div class="flex items-center justify-between pt-5 px-5">
-                            <div class="flex items-center gap-2">
-                                <img src="./assets/Open-Status.png" alt="closed-status">
-                                <img src="./assets/Closed- Status .png" alt="closed-status">
-                            </div>
-                            <span class="badge badge-error bg-[#FEECEC] rounded-full border-none  text-[#EF4444] py-[6px] ">HIGH</span>
-                            <span class="badge badge-error bg-[#FFF6D1] rounded-full border-none  text-[#F59E0B] py-[6px]">MEDIUM</span>
-                            <span class="badge badge-error bg-[#EEEFF2] rounded-full border-none  text-[#9CA3AF] py-[6px]">LOW</span>
-                        </div>
-                
-                        <!-- issue title -->
-                        <h2 class="font-semibold text-base px-5">
-                            Fix Navigation Menu On Mobile Devices
-                        </h2>
-                
-                        <!-- issue description -->
-                        <p class="px-5 text-sm text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...</p>
-                
-                        <!-- issue tags -->
-                        <div class="flex gap-2 mt-2 px-5">
-                            <span
-                                class="badge badge-error bg-[#FEECEC] rounded-full text-[#EF4444] py-[6px] border-[#FECACA]">BUG</span>
-                            <span class="badge badge-warning bg-[#FFF8DB] rounded-full text-[#D97706] py-[6px] border-[#FDE68A]">HELP
-                                WANTED</span>
-                        </div>
-                
-                        <!-- footer -->
-                        <div class="text-xs px-5 pb-5">
-                            <p class="text-[#64748B] mb-2 text-[12px]">#1 by john_doe</p>
-                            <p class="text-[#64748B] text-[12px]">1/15/2024</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- issue item -->
-                <div class="card rounded bg-base-100 shadow-sm border-t-4 border-green-500">
-                    <div class="card-body p-0">
-                        <!-- header -->
-                        <div class="flex items-center justify-between pt-5 px-5">
-                            <div class="flex items-center gap-2">
-                                <img src="./assets/Open-Status.png" alt="closed-status">
-                                <img src="./assets/Closed- Status .png" alt="closed-status">
-                            </div>
-                            <span class="badge badge-error bg-[#FEECEC] rounded-full border-none  text-[#EF4444] py-[6px] ">HIGH</span>
-                            <span class="badge badge-error bg-[#FFF6D1] rounded-full border-none  text-[#F59E0B] py-[6px]">MEDIUM</span>
-                            <span class="badge badge-error bg-[#EEEFF2] rounded-full border-none  text-[#9CA3AF] py-[6px]">LOW</span>
-                        </div>
-                
-                        <!-- issue title -->
-                        <h2 class="font-semibold text-base px-5">
-                            Fix Navigation Menu On Mobile Devices
-                        </h2>
-                
-                        <!-- issue description -->
-                        <p class="px-5 text-sm text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...</p>
-                
-                        <!-- issue tags -->
-                        <div class="flex gap-2 mt-2 px-5">
-                            <span
-                                class="badge badge-error bg-[#FEECEC] rounded-full text-[#EF4444] py-[6px] border-[#FECACA]">BUG</span>
-                            <span class="badge badge-warning bg-[#FFF8DB] rounded-full text-[#D97706] py-[6px] border-[#FDE68A]">HELP
-                                WANTED</span>
+                                class="min-w-fit badge badge-warning bg-[#FFF8DB] rounded-full text-[#D97706] py-[6px] border-[#FDE68A]"><img
+                                    src="./assets/Help-Icon.png" alt="help">HELP WANTED</span>
                         </div>
                 
                         <!-- footer -->
@@ -428,6 +168,52 @@
                     </div>
                 </div>
             </div>
+
+            <!-- issue modal -->
+            <!-- Open the modal using ID.showModal() method -->
+            <dialog id="issue_modal" class="modal modal-bottom sm:modal-middle">
+                <div class="modal-box">
+                    <!-- issue title -->
+                    <h3 class="text-2xl font-bold mb-2">Fix broken image uploads</h3>
+
+                    <!-- issue meta -->
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="badge badge-success rounded-full text-white bg-[#00A96E]">Opened</span>
+                        <span class="text-xl text-[#64748B]">&bull;</span>
+                        <span class="text-[#64748B] text-xs">Opened by Fahim Ahmed</span>
+                        <span class="text-xl text-[#64748B]">&bull;</span>
+                        <span class="text-[#64748B] text-xs">22/02/2026</span>
+                    </div>
+
+                    <!-- issue tags -->
+                    <div class="flex gap-2 mb-6">
+                        <span class="badge badge-error bg-[#FEECEC] rounded-full text-[#EF4444] py-[6px] border-[#FECACA]"><img src="./assets/Bug-Icon.png" alt="bug"> BUG</span>
+                        <span class="badge badge-warning bg-[#FFF8DB] rounded-full text-[#D97706] py-[6px] border-[#FDE68A]"><img src="./assets/Help-Icon.png" alt="help"> HELP WANTED</span>
+                    </div>
+
+                    <!-- issue description -->
+                    <p class="text-[#64748B] text-[16px] mb-6">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
+
+                    <!-- issue assignee + priority -->
+                    <div class="bg-[#F8FAFC] rounded-lg flex align-middle p-4">
+                        <div class="assignee w-1/2">
+                            <p class="text-[#64748B] text-[16px]">Assignee:</p>
+                            <h6 class="font-semibold text-[16px] text-[#1F2937]">Fahim Ahmed</h6>
+                        </div>
+                        <div class="priority w-1/2">
+                            <p class="text-[#64748B] text-[16px]">Priority:</p>
+                            <span class="badge badge-error rounded-full text-white bg-[#EF4444]">High</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn btn-primary">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
         </section>
     </main>
 </html>
