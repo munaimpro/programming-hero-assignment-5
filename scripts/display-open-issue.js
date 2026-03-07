@@ -72,7 +72,7 @@ const displayOpenIssue = (issues) => {
 
         const issueItem = `
         <div class="card rounded bg-base-100 shadow-sm border-t-4 ${issueBorder} cursor-pointer"
-        onclick="issue_modal.showModal()">
+        onclick="singleIssue(${issue.id})">
             <div class="card-body p-0">
                 <!-- header -->
                 <div class="flex items-center justify-between pt-5 px-5">
