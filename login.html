@@ -24,7 +24,37 @@
         }
     </style>
 </head>
-<body class="bg-[#F8FAFC] min-h-full">
-    
+<body class="bg-[#F8FAFC] min-h-[100vh]">
+    <main class="max-w-[1110px] py-[80px] px-4 lg:px-0 mx-auto">
+        <div class="card max-w-[520px] mx-auto my-0 p-8 bg-base-100">
+            <!-- form logo -->
+            <div class="form-logo text-center">
+                <img class="mx-auto" src="./assets/github-logo.png" alt="github-logo">
+                <h2 class="text-[#1F2937] font-semibold text-2xl mt-6">GitHub Issues Tracker</h2>
+                <p class="text-[16px] text-[#64748B]">Sign in to manage your issues</p>
+            </div>
+
+            <!-- form -->
+            <fieldset class="fieldset">
+                <label class="label text-[#1F2937] font-medium">Username</label>
+                <input type="email" class="input rounded-lg w-full mb-6" placeholder="Enter Username" />
+
+                <label class="label text-[#1F2937] font-medium">Password</label>
+                <input type="password" class="input rounded-lg w-full mb-6" placeholder="Enter Password" />
+
+                <button class="btn btn-primary mt-4 rounded-lg">Sign In</button>
+            </fieldset>
+
+            <!-- divider -->
+            <div class="divider">OR</div>
+            
+            <!-- demo credentials -->
+            <p class="text-[#64748B] text-sm mb-2 text-center">Demo Credentials:</p>
+            <div class="bg-base-200 rounded-lg p-4 text-sm text-center">
+                <p class="text-[16px] text-[#1F2937]"><b>Username:</b> admin</p>
+                <p class="text-[16px] text-[#1F2937]"><b>Password:</b> admin123</p>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
