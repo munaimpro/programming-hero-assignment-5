@@ -110,7 +110,7 @@ const displaySearchedIssue = (searchIssues) => {
                 </div>
             </div>
         </div>`
-
+            issueContainer.classList.add('lg:grid-cols-4', 'md:grid-cols-2')
             issueContainer.innerHTML += issueItem;
         })
     } else {
