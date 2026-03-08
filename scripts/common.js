@@ -37,7 +37,7 @@ const setIssueLabel = (issueLabels) => {
         }
 
         if (label == "enhancement") {
-            return `<span class="badge bg-[#BBF7D0] rounded-full text-[#00A96E] py-[6px] border-[#DEFCE8]">
+            return `<span class="badge bg-[#BBF7D0] rounded-full text-[#00A96E] py-[6px] border-[#DEFCE8]"><img src="./assets/Enhancement-Icon.png" alt="enhancement">
                 ENHANCEMENT
                 </span>`;
         }

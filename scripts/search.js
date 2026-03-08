@@ -6,7 +6,11 @@ document.getElementById('search-input').addEventListener('input', (event) => {
     .then(response => response.json())
     .then(data => {
         showLoader();
-        displaySearchedIssue(data.data);
+        if (!inputValue) {
+            displayAllIssue(data.data);
+        } else {
+            displaySearchedIssue(data.data);
+        }
         hideLoader();
     })
 })
@@ -42,7 +46,7 @@ const displaySearchedIssue = (searchIssues) => {
                 issuePriority = `<span class="badge badge-error bg-[#EEEFF2] rounded-full border-none  text-[#9CA3AF] py-[6px]">LOW</span>`;
             } if (issue.priority == "high") {
                 issuePriority = `<span class="badge badge-error bg-[#FEECEC] rounded-full border-none  text-[#EF4444] py-[6px] ">HIGH</span>`;
-            } else {
+            } if (issue.priority == "medium") {
                 issuePriority = `<span class="badge badge-error bg-[#FFF6D1] rounded-full border-none  text-[#F59E0B] py-[6px]">MEDIUM</span>`;
             }
 
