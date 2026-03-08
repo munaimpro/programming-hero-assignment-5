@@ -26,38 +26,12 @@ const displaySingleIssue = (issue) => {
         issuePriority = "Low";
     } if (issue.priority == "high") {
         issuePriority = "High";
-    } else {
+    } if (issue.priority == "medium") {
         issuePriority = "Medium";
     }
 
     // issue label
-    let issueLabel = issue.labels.map((label) => {
-        if (label == "bug") {
-            return `<span class="badge badge-error bg-[#FEECEC] rounded-full text-[#EF4444] py-[6px] border-[#FECACA]"><img src="./assets/Bug-Icon.png" alt="bug"> BUG</span>`;
-        }
-
-        if (label == "help wanted") {
-            return `<span class="min-w-fit badge badge-warning bg-[#FFF8DB] rounded-full text-[#D97706] py-[6px] border-[#FDE68A]"><img src="./assets/Help-Icon.png" alt="help"> HELP WANTED</span>`;
-        }
-
-        if (label == "enhancement") {
-            return `<span class="badge bg-[#BBF7D0] rounded-full text-[#00A96E] py-[6px] border-[#DEFCE8]">
-                ENHANCEMENT
-                </span>`;
-        }
-
-        if (label == "documentation") {
-            return `<span class="badge bg-[#BBF7D0] rounded-full text-[#00A96E] py-[6px] border-[#DEFCE8]">
-                DOCUMENTATION
-                </span>`;
-        }
-
-        if (label == "good first issue") {
-            return `<span class="badge bg-[#BBF7D0] rounded-full text-[#00A96E] py-[6px] border-[#DEFCE8]">
-                GOOD FIRST ISSUE
-                </span>`;
-        }
-    }).join(' ');
+    let issueLabel = setIssueLabel(issue.labels);
 
     // issue formatted date
     const formattedDate = new Date(issue.createdAt).toLocaleDateString('en-US');

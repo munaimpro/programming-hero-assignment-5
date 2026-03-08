@@ -10,63 +10,30 @@ const displayAllIssue = (issues) => {
     const issueContainer = document.getElementById('issue-container');
     issueContainer.innerHTML = '';
     
-    issues.forEach(issue => {
-        // issue status
-        let issueStatus = ''
-        let issueBorder = ''
+    if (issues.length > 0) {
+        issues.forEach(issue => {
+            // issue status
+            let issueStatus = ''
+            let issueBorder = ''
 
-        if (issue.status == "open") {
-            issueBorder = 'border-green-500'
-            issueStatus = `<img src="./assets/Open-Status.png" alt="closed-status">`;
-        } else {
-            issueBorder = 'border-purple-500'
-            issueStatus = `<img src="./assets/Closed- Status .png" alt="closed-status">`;
-        }
-
-        // issue priority
-        let issuePriority = ''
-
-        if (issue.priority == "low") {
-            issuePriority = `<span class="badge badge-error bg-[#EEEFF2] rounded-full border-none  text-[#9CA3AF] py-[6px]">LOW</span>`;
-        } if (issue.priority == "high") {
-            issuePriority = `<span class="badge badge-error bg-[#FEECEC] rounded-full border-none  text-[#EF4444] py-[6px] ">HIGH</span>`;
-        }else {
-            issuePriority = `<span class="badge badge-error bg-[#FFF6D1] rounded-full border-none  text-[#F59E0B] py-[6px]">MEDIUM</span>`;
-        }
-
-        // issue label
-        let issueLabel = issue.labels.map((label) => {
-            if (label == "bug") {
-                return `<span class="badge badge-error bg-[#FEECEC] rounded-full text-[#EF4444] py-[6px] border-[#FECACA]"><img src="./assets/Bug-Icon.png" alt="bug"> BUG</span>`;
+            if (issue.status == "open") {
+                issueBorder = 'border-green-500'
+                issueStatus = `<img src="./assets/Open-Status.png" alt="closed-status">`;
+            } else {
+                issueBorder = 'border-purple-500'
+                issueStatus = `<img src="./assets/Closed- Status .png" alt="closed-status">`;
             }
 
-            if (label == "help wanted") {
-                return `<span class="min-w-fit badge badge-warning bg-[#FFF8DB] rounded-full text-[#D97706] py-[6px] border-[#FDE68A]"><img src="./assets/Help-Icon.png" alt="help"> HELP WANTED</span>`;
-            }
+            // issue priority
+            let issuePriority = setIssuePriority(issue.priority);
 
-            if (label == "enhancement") {
-                return `<span class="badge bg-[#BBF7D0] rounded-full text-[#00A96E] py-[6px] border-[#DEFCE8]">
-                ENHANCEMENT
-                </span>`;
-            }
+            // issue label
+            let issueLabel = setIssueLabel(issue.labels);
 
-            if (label == "documentation") {
-                return `<span class="badge bg-[#BBF7D0] rounded-full text-[#00A96E] py-[6px] border-[#DEFCE8]">
-                DOCUMENTATION
-                </span>`;
-            }
+            // issue formatted date
+            const formattedDate = new Date(issue.createdAt).toLocaleDateString('en-US');
 
-            if (label == "good first issue") {
-                return `<span class="badge bg-[#BBF7D0] rounded-full text-[#00A96E] py-[6px] border-[#DEFCE8]">
-                GOOD FIRST ISSUE
-                </span>`;
-            }
-        }).join(' ');
-
-        // issue formatted date
-        const formattedDate = new Date(issue.createdAt).toLocaleDateString('en-US');
-
-        const issueItem = `
+            const issueItem = `
         <div class="card rounded bg-base-100 shadow-sm border-t-4 ${issueBorder} cursor-pointer"
         onclick="singleIssue(${issue.id})">
             <div class="card-body p-0">
@@ -87,18 +54,23 @@ const displayAllIssue = (issues) => {
                 <p class="px-5 text-sm text-[#64748B]">${issue.description}</p>
 
                 <!-- issue tags -->
-                <div class="flex gap-2 mt-2 px-5">
+                <div class="flex flex-wrap gap-2 pb-5 px-5">
                     ${issueLabel}
                 </div>
 
                 <!-- footer -->
-                <div class="text-xs px-5 pb-5">
+                <div class="text-xs p-5 border-t-2 border-t-[#E4E4E7]">
                     <p class="text-[#64748B] mb-2 text-[12px]">#1 by ${issue.author}</p>
                     <p class="text-[#64748B] text-[12px]">${formattedDate}</p>
                 </div>
             </div>
         </div>`
-
-        issueContainer.innerHTML += issueItem;
-    })
+            issueContainer.classList.add('lg:grid-cols-4', 'md:grid-cols-2')
+            issueContainer.innerHTML += issueItem;
+        })
+    } else {
+        issueContainer.classList.remove('lg:grid-cols-4', 'md:grid-cols-2')
+        const userMessage = `<h2 class='text-primary font-bold text-2xl border-3 min-h-fit p-20 bg-base-100 text-center rounded-lg borlder flex justify-center align-middle'>No Issue Available!</h2>`
+        issueContainer.innerHTML += userMessage;
+    }
 }

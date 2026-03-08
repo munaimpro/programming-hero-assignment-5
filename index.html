@@ -26,7 +26,7 @@
 </head>
 <body class="bg-[#F8FAFC] min-h-[100vh]">
     <main class="max-w-[1110px] py-[80px] px-4 lg:px-0 mx-auto">
-        <div class="card max-w-[520px] mx-auto my-0 p-8 bg-base-100">
+        <div class="card max-w-[520px] mx-auto my-0 p-8 bg-base-100 shadow-md">
             <!-- form logo -->
             <div class="form-logo text-center">
                 <img class="mx-auto" src="./assets/github-logo.png" alt="github-logo">
@@ -37,10 +37,12 @@
             <!-- form -->
             <fieldset class="fieldset">
                 <label class="label text-[#1F2937] font-medium">Username</label>
-                <input id="input-username" type="email" class="input rounded-lg w-full mb-6" placeholder="Enter Username" />
+                <input id="input-username" type="email" class="input rounded-lg w-full mb-1" placeholder="Enter Username" />
+                <p class="text-primary font-medium mb-6">Default: admin</p>
 
                 <label class="label text-[#1F2937] font-medium">Password</label>
-                <input id="input-password" type="password" class="input rounded-lg w-full mb-6" placeholder="Enter Password" />
+                <input id="input-password" type="password" class="input rounded-lg w-full mb-1" placeholder="Enter Password" />
+                <p class="text-primary font-medium mb-6">Default: admin123</p>
 
                 <button id="signin-btn" class="btn btn-primary mt-4 rounded-lg">Sign In</button>
             </fieldset>
