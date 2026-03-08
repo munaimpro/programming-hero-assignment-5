@@ -9,7 +9,7 @@ const singleIssue = (issueId) => {
 }
 
 // Function to display single issue
-function displaySingleIssue(issue) {
+const displaySingleIssue = (issue) => {
     // issue status
     let issueStatus = ''
 
@@ -107,6 +107,8 @@ function displaySingleIssue(issue) {
                     </div>
                 </div>`
     
+    // Load data to modal
+    document.getElementById('issue_modal').innerHTML = '';
     document.getElementById('issue_modal').innerHTML += loadData;
 
     // Show modal
